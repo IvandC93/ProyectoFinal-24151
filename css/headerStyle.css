@@ -1,0 +1,40 @@
+body {
+    background-image: linear-gradient(to bottom, antiquewhite, antiquewhite, lightgreen);
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 auto;
+    padding: 0 1em;
+    max-width: 1024px;
+}
+
+/* HEADER */
+header {
+    position: fixed;
+    width: 97%;
+    max-width: 1024px;
+    height: 9em; /* Igual al padding-top del contenedor en animales */
+    background-color: #ffffff;
+    padding-bottom: 2px;
+    margin-bottom: 2em;
+    border-bottom: 1px solid #000;
+}
+.menuPrincipal {
+    background-color: #d18465;
+    
+}
+.menuPrincipal li a {
+    display: block;
+    text-decoration: none; /* Quito el subrrayado */
+    font-weight: bold;
+    color: #000000;
+    padding: 0.6em 1em;
+}
+.menuPrincipal ul {
+    display: flex; /* Flexibiliza el contenido */
+    flex-wrap: wrap; /* Coloca elementos sin que se desarme */
+    justify-content: flex-end; /* Todo al final */
+    list-style-type: none; /* Quita decoraciones de lista */
+}
+.menuPrincipal li a:hover { /* Al colocar el cursor sobre la caja */
+    background: #ebbb38;
+}
+/* FIN DEL HEADER */

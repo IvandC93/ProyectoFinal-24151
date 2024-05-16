@@ -1,0 +1,37 @@
+img {
+    /* Limito el tamaño máximo de la imagen... */
+    max-width: 100%;
+}
+.contenedor {
+    padding-top: 9em;
+    padding-bottom: 1em;
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+    column-gap: 1em;
+    row-gap: 1em;
+}
+
+.tarjetaAdopcion {
+    background-color: #e6e6a8;
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 10px;
+    color: #5c0000;
+    margin-top: 1em;
+}
+
+/* A partir de la medida establecida (480px) funciona el siguiente grid */
+@media (max-width: 479px) {
+    .contenedor {
+        grid-template-columns: repeat(1 , 1fr);
+    }
+    .menuPrincipal ul {
+        flex-wrap:nowrap; /* Coloca elementos sin que se desarme */
+        justify-content:right; /* Todo al medio */
+    }
+}
+@media (min-width: 480px) and (max-width: 1023px) {
+    .contenedor {
+        grid-template-columns: repeat(2 , 1fr);
+    }
+}
