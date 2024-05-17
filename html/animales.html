@@ -4,22 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../css/headerStyle.css">
+    <!-- <link rel="stylesheet" href="../css/headerStyle.css"> -->
     <link rel="stylesheet" href="../css/animalesStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Animales</title>
 </head>
 <body>
     <header>
-        <h1>Adopta patitas</h1>
-        <nav class="menuPrincipal">
-            <ul>
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="">Animales</a></li>
-                <li><a href="../html/requisitos.html">Requisitos</a></li>
-                <li><a href="">Donaciones</a></li>
-            </ul>
-        </nav>
+        <div id="headerLeft">
+            <img id="headerLogo" src="../img/pataHuella.png" alt="pataHuellaImagen">
+            <h1 id="titulo">Adopta patitas</h1>
+        </div>
+        
+        <div class="botonera" id="botoneraPrincipal">
+            <a href="../index.html">Inicio</a>
+            <a class="active" href="javascript:void(0);">Animales</a>
+            <a href="../html/requisitos.html">Requisitos</a>
+            <a href="">Donaciones</a>
+            <a href="javascript:void(0);" class="icon" onclick="mostrarHamburguesa()"><i class="fa fa-bars"></i></a>
+        </div>
     </header>
 
     <div class="contenedor">
@@ -50,6 +54,7 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
             <a href="#">Leer más</a>
         </article>
-        
+    </div>
+    <script type="text/javascript" src="../js/hamburger.js"></script>
 </body>
 </html>

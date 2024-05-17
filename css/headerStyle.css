@@ -8,6 +8,7 @@ body {
 
 /* HEADER */
 header {
+    grid-area: header;
     position: fixed;
     width: 97%;
     max-width: 1024px;
@@ -16,6 +17,10 @@ header {
     padding-bottom: 2px;
     margin-bottom: 2em;
     border-bottom: 1px solid #000;
+}
+.headerLogo {
+    float: left;
+
 }
 .menuPrincipal {
     background-color: #d18465;

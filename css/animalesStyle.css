@@ -1,9 +1,87 @@
+body {
+    background-image: linear-gradient(to bottom, antiquewhite, antiquewhite, lightgreen);
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 auto;
+    padding: 0 1em;
+    max-width: 1024px;
+    margin: auto;
+}
+
+
+/* HEADER */
+/* El header esta dividido en dos partes (headerLeft y botoneraPrincipal), para modelarlo mejor con CSS grid.
+Dentro de cada parte, los elementos estan ordenados usando flexbox.
+'headerLeft' contiene el logo y el nombre de la empresa.
+'botoneraPrincipal' contiene la botonera que da navegabilidad a la página. */
+
+header {
+    position: fixed center; /* Centra el header y lo fija: si scrolleo hacia abajo sigo viendolo */
+    background-color: #d18465; 
+    padding: 10px; /* Distancia al borde de la página */
+    
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 2 columnas*/
+    grid-template-rows: auto;
+    grid-template-areas: "left   right   right"
+                         "bottom bottom bottom" /* Esta linea solo cuenta en el menu hamburguesa */
+}
+
+#headerLeft {
+    grid-area: left;
+    text-align: center;
+    display: flex; /* Flexibiliza el contenido */
+    flex-wrap: nowrap; /* Coloca elementos sin que se desarme */
+    justify-content: flex-start; /* Todo al final */
+}
+    #headerLogo {
+        height: 70px;
+    }
+    #titulo {
+        margin-top: auto;
+        margin-bottom: auto;
+        text-align: left;
+        font-size: 2em;
+        padding-left: 20px;
+    }
+
+.botonera {
+    grid-area: right;
+    display: flex; /* Flexibiliza el contenido */
+    flex-wrap: nowrap; /* Coloca elementos sin que se desarme */
+    margin-top: auto;
+    margin-bottom: auto;
+    justify-content: flex-end; /* Todo al final */
+    text-decoration: none; /* Quita decoraciones de lista */
+    overflow: hidden;
+}
+    .botonera a {
+        display: block;
+        text-decoration: none;
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #000000;
+        padding: 0.6em 1em;
+    }
+    
+    .botonera a:hover { /* Al colocar el cursor sobre la caja */
+        background: #ebbb38;
+    }
+    .botonera a.active {
+        background-color: #d18465;        
+        color: #ebbb38;
+        text-decoration:underline;
+    }
+    .botonera .icon {
+        display: none;
+        font-size: 30px;
+    } 
+/* FIN DEL HEADER */
+
 img {
     /* Limito el tamaño máximo de la imagen... */
     max-width: 100%;
 }
 .contenedor {
-    padding-top: 9em;
     padding-bottom: 1em;
     display: grid;
     grid-template-columns: repeat(3 , 1fr);
@@ -20,17 +98,74 @@ img {
     margin-top: 1em;
 }
 
-/* A partir de la medida establecida (480px) funciona el siguiente grid */
+
+/* MEDIA QUERY */
+@media (max-width: 799px) {
+    /* Menu hamburger + tarjetas de 2 columnas */
+    .botonera a {
+        display: none;
+    }
+    .botonera a.icon {
+        display: flex;
+    }
+    /* Menu interno de la hamburguesa */
+    .botoneraresponsive {
+        grid-area: bottom;
+        position: relative;
+        background-color: #fff;
+        margin-top: .5em;
+    }
+    
+    .botoneraresponsive a {
+        float: none;
+        display: block;
+        text-decoration: none;
+        border-bottom: solid 1px lightgray;
+        text-align: right;
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #000000;
+        padding: 0.6em 1em;
+    }
+    .botoneraresponsive a:hover {
+        background-color: lightgray;
+    }
+    .botoneraresponsive a.active {
+        background-color: lightgray;
+    }
+    .botoneraresponsive a.icon {
+        position:absolute;
+        font-size: 30px;
+        border-bottom: none;
+        top: -81px;
+        right: 0;
+    }
+    .botoneraresponsive a.icon:hover {
+        background: #ebbb38;
+    }
+}
+
 @media (max-width: 479px) {
+    /* #headerLogo {
+        height: 65px;
+    }
+    #titulo {
+        font-size: 1.5em;
+    } */
     .contenedor {
         grid-template-columns: repeat(1 , 1fr);
     }
     .menuPrincipal ul {
-        flex-wrap:nowrap; /* Coloca elementos sin que se desarme */
-        justify-content:right; /* Todo al medio */
+        flex-wrap: nowrap; /* Coloca elementos sin que se desarme */
+        justify-content: right; /* Todo al medio */
     }
 }
-@media (min-width: 480px) and (max-width: 1023px) {
+@media (min-width: 480px) and (max-width: 799px) {
+    .contenedor {
+        grid-template-columns: repeat(2 , 1fr);
+    }
+}
+@media (min-width: 800px) and (max-width: 1023px) {
     .contenedor {
         grid-template-columns: repeat(2 , 1fr);
     }
